@@ -6,6 +6,10 @@ sesión y gestionar tareas personales: crear, editar, cambiar de estado, filtrar
 archivo y eliminar. Es instalable (PWA) y, sin conexión, deja consultar la última lista en modo
 de solo lectura.
 
+## Demostración
+
+Video de la aplicación en funcionamiento: https://youtu.be/wNqIbS5NjYY
+
 ## Requisitos
 
 - Node.js 22 o superior (LTS)
