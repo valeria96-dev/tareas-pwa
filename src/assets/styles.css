@@ -1,0 +1,268 @@
+/* Estilos globales: variables, base y piezas que comparten varios componentes.
+   Enfoque mobile first: la base es para celular y las media queries amplían el diseño. */
+
+:root {
+  --ink: #1e2233;
+  --muted: #565d73;
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --line: #dfe2ec;
+  --line-strong: #8a90a6;
+  --primary: #3b4cca;
+  --primary-strong: #2a3799;
+  --primary-soft: #e8ebfb;
+  --ok: #1b6b3a;
+  --danger: #b3261e;
+  --radius: 12px;
+  --content: 60rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* Fuentes del sistema: no hay nada que descargar, así que se ven igual sin conexión. */
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+h1:focus {
+  outline: none;
+} /* recibe el foco solo por código, al cambiar de vista */
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+a {
+  color: var(--primary-strong);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.main {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 1.25rem 1rem 5rem;
+}
+.main > section {
+  display: grid;
+  gap: 1rem;
+}
+.narrow {
+  max-width: 38rem;
+  margin: 0 auto;
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.danger-zone {
+  border-color: #e8b4b0;
+}
+.muted {
+  margin: 0;
+  color: var(--muted);
+}
+
+.callout {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #b97400;
+  border-radius: 8px;
+  background: #fff6e0;
+}
+.callout--error {
+  border-left-color: var(--danger);
+  background: #fdecea;
+}
+
+/* Botones: 44 px de alto como mínimo para tocarlos con comodidad */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-strong);
+}
+.btn-secondary {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+.btn-danger {
+  background: var(--surface);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+.btn-danger-solid {
+  background: var(--danger);
+  color: #fff;
+}
+.btn-small {
+  padding: 0 0.8rem;
+  font-size: 0.9rem;
+}
+.btn-block {
+  width: 100%;
+}
+
+.link-button {
+  min-height: 44px;
+  padding: 0 0.25rem;
+  border: 0;
+  background: none;
+  color: var(--primary-strong);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Formularios */
+.form {
+  display: grid;
+  gap: 1rem;
+}
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+.field label {
+  font-weight: 600;
+}
+input[type='text'],
+input[type='password'],
+select,
+textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+textarea {
+  resize: vertical;
+}
+input[type='file'] {
+  max-width: 100%;
+  font: inherit;
+}
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background: #eceef4;
+}
+[aria-invalid='true'] {
+  border-color: var(--danger);
+  border-width: 2px;
+}
+.field-error {
+  margin: 0;
+  color: var(--danger);
+  font-weight: 600;
+}
+.field-help {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Utilidades de accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0.5rem;
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+  .main {
+    padding-top: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

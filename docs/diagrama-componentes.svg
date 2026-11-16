@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" width="100%" role="img" aria-label="Diagrama de componentes">
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#333"/></marker>
+    <style>
+      .v{fill:#3b4cca;stroke:#2a3799;stroke-width:2}.vt{fill:#fff;font-size:27px;font-weight:bold;text-anchor:middle}
+      .c{fill:#fff;stroke:#333;stroke-width:2}.ct{fill:#000;font-size:25px;text-anchor:middle}
+      .s{fill:#eef0f7;stroke:#333;stroke-width:2}.st{fill:#000;font-size:24px}.sb{font-weight:bold;font-size:25px}
+      .l{stroke:#333;stroke-width:2;fill:none}.n{fill:#333;font-size:22px;font-style:italic}
+    </style>
+  </defs>
+  <!-- raíz -->
+  <rect class="c" x="170" y="10" width="300" height="50" rx="8"/><text class="ct" x="320" y="42">AppHeader</text>
+  <rect class="v" x="650" y="10" width="300" height="50" rx="8"/><text class="vt" x="800" y="43">App.vue</text>
+  <rect class="c" x="1130" y="10" width="300" height="50" rx="8"/><text class="ct" x="1280" y="42">AppNotice</text>
+  <path class="l" d="M650 35H470" marker-end="url(#f)"/><path class="l" d="M950 35H1130" marker-end="url(#f)"/>
+  <text class="n" x="560" y="24" text-anchor="middle">props ↓ eventos ↑</text>
+  <!-- router -->
+  <path class="l" d="M800 60V100M170 100H1390M170 100V128M580 100V128M990 100V128M1390 100V128"/>
+  <text class="n" x="812" y="90">RouterView (Vue Router, rutas protegidas)</text>
+  <!-- vistas -->
+  <rect class="v" x="40" y="130" width="260" height="50" rx="8"/><text class="vt" x="170" y="163">LoginView</text>
+  <rect class="v" x="430" y="130" width="300" height="50" rx="8"/><text class="vt" x="580" y="163">TasksView</text>
+  <rect class="v" x="860" y="130" width="260" height="50" rx="8"/><text class="vt" x="990" y="163">TaskNewView</text>
+  <rect class="v" x="1240" y="130" width="300" height="50" rx="8"/><text class="vt" x="1390" y="163">TaskDetailView</text>
+  <!-- componentes -->
+  <path class="l" d="M170 180V228" marker-end="url(#f)"/>
+  <rect class="c" x="60" y="230" width="220" height="48" rx="8"/><text class="ct" x="170" y="261">AuthForm</text>
+  <path class="l" d="M500 180V228" marker-end="url(#f)"/><path class="l" d="M680 180V228" marker-end="url(#f)"/>
+  <rect class="c" x="390" y="230" width="200" height="48" rx="8"/><text class="ct" x="490" y="261">TaskFilter</text>
+  <rect class="c" x="610" y="230" width="200" height="48" rx="8"/><text class="ct" x="710" y="261">TaskList</text>
+  <path class="l" d="M710 278V308" marker-end="url(#f)"/>
+  <rect class="c" x="610" y="310" width="200" height="48" rx="8"/><text class="ct" x="710" y="341">TaskItem</text>
+  <path class="l" d="M610 334H592" marker-end="url(#f)"/>
+  <rect class="c" x="390" y="310" width="200" height="48" rx="8"/><text class="ct" x="490" y="341">StatusBadge</text>
+  <path class="l" d="M1060 180L1130 228" marker-end="url(#f)"/><path class="l" d="M1270 180L1200 228" marker-end="url(#f)"/>
+  <rect class="c" x="1060" y="230" width="210" height="48" rx="8"/><text class="ct" x="1165" y="261">TaskForm</text>
+  <path class="l" d="M1440 180V228" marker-end="url(#f)"/>
+  <rect class="c" x="1300" y="230" width="270" height="48" rx="8"/><text class="ct" x="1435" y="261">AttachmentUploader</text>
+  <rect class="c" x="880" y="310" width="690" height="48" rx="8" stroke-dasharray="8 6"/>
+  <text class="ct" x="1225" y="341">StateMessage y ConfirmDialog (TasksView y TaskDetailView)</text>
+  <!-- capas inferiores -->
+  <path class="l" d="M800 372V408" marker-end="url(#f)"/>
+  <text class="n" x="815" y="396">solo las vistas llaman a los servicios</text>
+  <rect class="s" x="40" y="410" width="470" height="220" rx="8"/>
+  <text class="st sb" x="60" y="444">Estado (composables)</text>
+  <text class="st" x="60" y="480">Compartido: useSession (sesión)</text>
+  <text class="st" x="60" y="510">y useNotice (aviso global)</text>
+  <text class="st" x="60" y="550">Local: useTasks (lista), filtro en la</text>
+  <text class="st" x="60" y="580">URL y campos de cada formulario</text>
+  <rect class="s" x="550" y="410" width="500" height="220" rx="8"/>
+  <text class="st sb" x="570" y="444">Servicios</text>
+  <text class="st" x="570" y="480">auth.api.ts y tasks.api.ts (endpoints)</text>
+  <text class="st" x="570" y="516">http.ts: único fetch, valida response.ok,</text>
+  <text class="st" x="570" y="546">ApiError, cancelación y tiempo de espera</text>
+  <path class="l" d="M800 560V588" marker-end="url(#f)"/>
+  <text class="st sb" x="800" y="616" text-anchor="middle">API de la Unidad 2 (/api)</text>
+  <rect class="s" x="1090" y="410" width="470" height="220" rx="8"/>
+  <text class="st sb" x="1110" y="444">PWA y sin conexión</text>
+  <text class="st" x="1110" y="480">Service worker: precache de HTML, JS,</text>
+  <text class="st" x="1110" y="510">CSS e iconos; /api solo por red</text>
+  <text class="st" x="1110" y="550">offlineStore: copia de la lista en</text>
+  <text class="st" x="1110" y="580">localStorage, se borra al cerrar sesión</text>
+</svg>
